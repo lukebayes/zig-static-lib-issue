@@ -6,7 +6,7 @@
 1) Build and run with:
 
 ```bash
-zig build -Dtarget=x86_64-windows-gnu && wine64 main.exe
+zig build -Dtarget=x86_64-windows-gnu && wine64 dist/main.exe
 ```
 2) Output is:
 ```bash
@@ -15,8 +15,8 @@ soundio successfully created context
 ```
 3) Move libsoundio.dll to the library search path, build and run.
 ```bash
-mv libsoundio.dll vendor/libsoundio/
-zig build -Dtarget=x86_64-windows-gnu && wine64 main.exe
+mv hidden/libsoundio.dll vendor/libsoundio/
+zig build -Dtarget=x86_64-windows-gnu && wine64 dist/main.exe
 ```
 Will output somethine like:
 ```bash
@@ -25,8 +25,8 @@ Will output somethine like:
 ```
 Move the dll out of the path and it works again.
 ```bash
-mv vendor/libsoundio/libsoundio.dll ./
-zig build -Dtarget=x86_64-windows-gnu && wine64 main.exe
+mv vendor/libsoundio/libsoundio.dll ./hidden
+zig build -Dtarget=x86_64-windows-gnu && wine64 dist/main.exe
 
 info: All your codebase are belong to us.
 soundio successfully created context
