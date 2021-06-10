@@ -21,8 +21,6 @@ pub fn build(b: *std.build.Builder) void {
     exe.addLibPath("vendor/libsoundio");
     exe.linkSystemLibrary("soundio");
 
-    // NOTE(lbayes): Uncommenting the following line corrupts the system cache
-    // and prevents this from statically linking at again.
     // exe.linkLibC();
 
     exe.install();
